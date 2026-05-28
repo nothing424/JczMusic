@@ -1,0 +1,158 @@
+/* ============================================
+   JCZ MUSIC — search.css
+============================================ */
+
+.search-hero {
+  padding: 32px 40px 0;
+}
+
+.search-box-wrap {
+  position: relative;
+  max-width: 600px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 50px 16px 52px;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 50px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: border-color var(--dur), box-shadow var(--dur), background var(--dur);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--gold);
+  background: var(--surface-2);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+.search-clear {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur), color var(--dur);
+}
+
+.search-clear:hover {
+  background: var(--white-10);
+  color: var(--white);
+}
+
+/* === GENRE GRID === */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.genre-card {
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur), box-shadow var(--dur);
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.genre-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.genre-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  transition: background var(--dur);
+}
+
+.genre-card:hover::before {
+  background: rgba(0,0,0,0.15);
+}
+
+.genre-emoji {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.8rem;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.genre-name {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--white);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.genre-count {
+  position: relative;
+  z-index: 1;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 2px;
+}
+
+/* === NO RESULTS === */
+.no-results {
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+.no-results-text {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.no-results-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .search-hero { padding: 24px 20px 0; }
+  .genre-grid { grid-template-columns: repeat(2, 1fr); }
+}
