@@ -1,0 +1,174 @@
+/* ============================================
+   JCZ MUSIC — playlist.css
+============================================ */
+
+.playlist-hero {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: flex-end;
+  padding: 32px 40px 0;
+}
+
+.playlist-hero-art {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.playlist-art-collage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+
+.collage-cell {
+  background: var(--surface-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.playlist-art-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(139,111,212,0.15));
+}
+
+.playlist-art-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  color: var(--gold);
+  filter: drop-shadow(0 0 16px rgba(201,168,76,0.6));
+}
+
+.playlist-hero-art.has-art .playlist-art-icon {
+  display: none;
+}
+
+.playlist-hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.playlist-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.playlist-name {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.playlist-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.playlist-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* === TRACK ROW REMOVE BUTTON === */
+.track-remove {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color var(--dur), background var(--dur);
+  opacity: 0;
+}
+
+.track-row:hover .track-remove {
+  opacity: 1;
+}
+
+.track-remove:hover {
+  color: var(--danger);
+  background: rgba(224,91,91,0.15);
+}
+
+.track-remove svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* === EMPTY PLAYLIST === */
+.empty-playlist {
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.empty-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .playlist-hero {
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding: 24px 20px 0;
+  }
+
+  .playlist-hero-art {
+    width: 140px;
+    height: 140px;
+  }
+
+  .playlist-name { font-size: 1.8rem; }
+}
+
+@media (max-width: 600px) {
+  .playlist-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+  }
+
+  .playlist-hero-art {
+    margin: 0 auto;
+  }
+
+  .playlist-actions { justify-content: center; }
+}
